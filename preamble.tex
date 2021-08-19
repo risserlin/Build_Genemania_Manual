@@ -6,3 +6,31 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+
+% create callout boxes:
+\newenvironment{rmdblock}[1]
+  {\begin{shaded*}
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \item
+  }
+  {
+  \end{itemize}
+  \end{shaded*}
+  }
+\newenvironment{rmd-datadownload}
+  {\begin{rmdblock}{datadownload}}
+  {\end{rmdblock}}
+\newenvironment{rmd-note}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmd-troubleshooting}
+  {\begin{rmdblock}{troubleshooting}}
+  {\end{rmdblock}}
+\newenvironment{rmd-tip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}

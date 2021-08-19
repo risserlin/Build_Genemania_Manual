@@ -1,21 +1,18 @@
 # Introduction {#intro}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+When researching with an organism not present in GeneMANIA[@genemania] it can be beneficial to pool together all the data that you have for your organism and create your own instance.  There are two ways you can create your own instance of GeneMANIA:
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+  1. Local version of GeneMANIA in cytoscape - only available to you on the device that it is created on.  It is quick to set up and offers all the functionality available in the GeneMANIA cytoscape App.
+  1. Local version of GeneMANIA website - if you expose this website to the internet you can share this resource with your colleagues.  Considerably more work to set up but all the code and parts are available in github and docker instances.  
+  
+  For both of the above instances the bulk of the work required is collecting, translating and creating id conversions and networks, for your desired species, that are used in GeneMANIA.  Given that this is an organism of interest to you likely you have a lot of the information or know where to get it.  
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+## Overview
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
-
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
-
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+  There are three major components to the GeneMANIA system.  (Only the first two are required for both methods of creating your own instance, identifiers and Network, annotation and attribute data):
+  
+  1. **Identifiers** - mapping from all the different identifiers available for your species of interest.  Ideally the mappping files contain all and any identifiers used for the species.  For example, the human dataset in GeneMANIA has hgnc symbol, entrez gene ids, refseq ids, ensembl ids and uniprot ids.
+  1. **Network, annotation and attribure data** - tables of interactions and associations between your entities (enumerated with one of the above identifiers).  Each interaction is associated with a score.  If the data in question doesn't have a score then it has the score of 1 (ie. it is present in the dataset) 
+  1. **Indexed data** - Once all the previous data is collected and cleaned the last step involves indexing the data using [lucene](https://lucene.apache.org/). 
+  
+  For the purpose of this tutorial we will be creating an instance of GeneMANIA using [Tetrahymena](http://ciliate.org/index.php/home/welcome).

@@ -12,3 +12,52 @@ pre {
 pre code {
   white-space: inherit;
 }
+.rmd-troubleshooting {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  /*#FFFF00*/  url("images/iconfinder_support_309071.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#000000;
+}
+.rmd-troubleshooting:before {
+  color: #ff6347;
+  font-size: 24px;
+  content: "Troubleshooting";
+}
+.rmd-tip {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  #f2f1a2  url("images/iconfinder_idea_309059.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color: #f2f1a2;
+}
+.rmd-tip:before {
+  color: #a2aef2;
+  font-size: 24px;
+  content: "Tip";
+}
+.rmd-note {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  #9ad4fe  url("images/iconfinder_document_309087.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color: #9ad4fe;
+}
+.rmd-note:before {
+  color: #fcf403;
+  font-size: 24px;
+  content: "Note";
+}
+.rmd-datadownload {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  /*#FFFF00*/  url("images/iconfinder_downloads_309074.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#169c40;
+}
+.datadownload:before {
+  color: #169c40;
+  font-size: 24px;
+  content: "Download Instructions";
+}
+

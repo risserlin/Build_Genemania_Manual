@@ -1,0 +1,81 @@
+# Website build Stage 2 - Gather and clean network and attribute data
+
+The objective of this stage is collect all the network and attribute data that we are going to use in this instance of GeneMANIA.  Depending on the species there will be varying sources that the data can come from.  For the main GeneMANIA there are scripts to download and format data from:
+
+  1. Identifiers - extracted from Ensembl in the previous stage.
+  1. Gene Ontology annotation - downloaded from [GO](http://geneontology.org/) in [GAF format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
+  1. [Biogrid](https://thebiogrid.org/)
+  1. [GEO](https://www.ncbi.nlm.nih.gov/geo/) - imports expression datasets from specified platform series identifiers specified in configuration file.
+  1. [I2D](http://ophid.utoronto.ca/ophidv2.204/)
+  1. [iRef](https://irefindex.vib.be/wiki/index.php/iRefIndex) - static resource
+  1. [Pathway Commons](https://www.pathwaycommons.org/) - static resources from 2011
+  1. Shared Protein Domains - as calculated from the files created from the Ensembl export in the previous step.
+  1. Static Networks - networks created and curated manually.  
+  
+  All of the configuration happens in the genemania config file.  For the above resources you need to specify what organisms you wish to download.  If there are no tag specified in the config file then nothing will be downloaded and that step will be skipped.  Each of the above data sources will be expanded on below.  They each have their own script to download and process them. 
+
+## How to build your data
+
+In order to build the data we need to create an genemania_databuild docker container.  It will need your identifier file that you created in the previous step.
+
+### Create and setup a container of the gmbuild data docker instance
+
+The docker instance that we are going to use can be found [here](https://hub.docker.com/repository/docker/baderlab/genemania_databuild_base) - genemania_databuild_base.
+
+  1. Install Docker - for instructions see [here](https://docs.docker.com/get-docker/)
+  1. check out GeneMANIA_build from the Baderlab github (https://github.com/BaderLab/GeneMANIA_build.git)
+  
+    
+```{bash, eval=FALSE}
+git clone https://github.com/BaderLab/GeneMANIA_build.git
+```
+
+  
+<ol start=3 type="1">
+<li> Create container of genemania_databuild_base instance.</li>
+</ol>
+
+  * each -v parameter specifies a local directory, or volume, that is mapped to a directory on the docker.  For example, the directory /home/gmbuild/ensembl data on your machine gets mapped to the location /home/gmbuild/ensembl_data in the docker container.  Any file that is put into that directory on the docker will show up on the corresponding directory on your machine.
+  * There are multiple volumes mapped to the ensembl_mirror
+    * /home/gmbuild/Tetrahymena/ensembl_data/July_23_2021/Work --> /home/gmbuild/ensembl_data
+    * /home/gmbuild/Tetrahymena/gm_data --> /home/gmbuild/dev - This is the directory where all the code and data is going to be built.  When the container is created it will create a directory on the docker in /home/gmbuild/dev/r# (r# is specified in the next variable).  This directory will contain the following structure:
+      * bp
+      * data
+      * db
+      * src
+  * -e VERSION=r1 - specifies an environment variable that is used when the container is first created.  On creation a direcotry will be created with the revision number and the config file will be updated to reflect this version
+
+```{block, type="rmd-troubleshooting"}
+**Problem**:
+If you want to use the same docker for multiple builds of the data you will have to create the directory structure and update config file manually.  
+
+**Solution**:
+Recommendation - create a new docker container for every revision to initialized everything correctly
+```
+  
+  * With the --name tag you can specify what you would like to call your instance.  This name can be used when logging into the instance. For this example we have called this instance genemania_build_tetrahymena.
+
+```{bash, eval=FALSE}
+
+docker run -dit 
+-v /home/gmbuild/Tetrahymena/ensembl_data/July_23_2021/Work:/home/gmbuild/ensembl_data 
+-v /home/gmbuild/Tetrahymena/gm_data:/home/gmbuild/dev 
+-v /home/gmbuild/Tetrahymena/db_build:/gm/db_build 
+-e VERSION=r1 
+--name genemania_build_tetrahymena 
+baderlab/genemania_databuild_base /bin/bash
+
+```
+
+  <ol start=4 type="1">
+<li> Once the instance is created, log into it.</li>
+</ol>
+  
+```{bash, eval=FALSE}
+docker exec -it genemania_build_tetrahymena /bin/bash
+```
+
+
+## Gene Ontology annotation
+
+## Static Networks

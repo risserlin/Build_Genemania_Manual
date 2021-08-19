@@ -13,3 +13,4 @@ RnwWeave: Sweave
 LaTeX: pdfLaTeX
 
 BuildType: Website
+WebsitePath: ~/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/Build_Genemania_Manual

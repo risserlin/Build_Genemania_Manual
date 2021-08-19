@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Website build Stage 1 - Identifier mapping file | Building GeneMANIA</title>
+  <meta name="description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Website build Stage 1 - Identifier mapping file | Building GeneMANIA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  <meta name="github-repo" content="risserlin/Build_Genemania_Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Website build Stage 1 - Identifier mapping file | Building GeneMANIA" />
+  
+  <meta name="twitter:description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+<meta name="date" content="2021-08-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Building GeneMANAIA Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Attributions:</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html"><i class="fa fa-check"></i><b>3</b> Website build Stage 1 - Identifier mapping file</a><ul>
+<li class="chapter" data-level="3.1" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html#how-to-build-your-identifier-file"><i class="fa fa-check"></i><b>3.1</b> How to build your identifier file</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html#create-and-setup-a-container-of-the-ensembl-mirror-docker-instance"><i class="fa fa-check"></i><b>3.1.1</b> Create and setup a container of the ensembl mirror docker instance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><i class="fa fa-check"></i><b>4</b> Website build Stage 2 - Gather and clean network and attribute data</a><ul>
+<li class="chapter" data-level="4.1" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#how-to-build-your-data"><i class="fa fa-check"></i><b>4.1</b> How to build your data</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#create-and-setup-a-container-of-the-gmbuild-data-docker-instance"><i class="fa fa-check"></i><b>4.1.1</b> Create and setup a container of the gmbuild data docker instance</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#gene-ontology-annotation"><i class="fa fa-check"></i><b>4.2</b> Gene Ontology annotation</a></li>
+<li class="chapter" data-level="4.3" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#static-networks"><i class="fa fa-check"></i><b>4.3</b> Static Networks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Building GeneMANIA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="website-build-stage-1---identifier-mapping-file" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Website build Stage 1 - Identifier mapping file</h1>
+<p>In the main GeneMANIA instance all identifier mapping is extracted from the mySQL data dumps released by ensembl -</p>
+<p>There is no requirement to have all the specified identifiers or to get your mappings from ensembl but your identifier mapping file for the website build needs to have the following format:</p>
+<ol style="list-style-type: decimal">
+<li>GMID - automatically generated unique genemania identifier. It is specific to the instance of the website and not to any external database.</li>
+<li>Ensembl Gene ID<br />
+</li>
+<li>Protein Coding</li>
+<li>Gene Name<br />
+</li>
+<li>Ensembl Transcript ID<br />
+</li>
+<li>Ensembl Protein ID</li>
+<li>Uniprot ID</li>
+<li>Entrez Gene ID</li>
+<li>RefSeq mRNA ID</li>
+<li>RefSeq Protein ID<br />
+</li>
+<li>Synonyms<br />
+</li>
+<li>Definition</li>
+</ol>
+<div id="how-to-build-your-identifier-file" class="section level2">
+<h2><span class="header-section-number">3.1</span> How to build your identifier file</h2>
+<p>In order to build the identifier file we need to create an ensembl mirror for the desired organism, import all the ensembl data and export the desired data into the above specified format.</p>
+<div id="create-and-setup-a-container-of-the-ensembl-mirror-docker-instance" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Create and setup a container of the ensembl mirror docker instance</h3>
+<p>The docker instance that we are going to use can be found <a href="https://hub.docker.com/repository/docker/baderlab/gmbuild_ensembl">here</a> - gmbuild_ensembl.</p>
+<ol style="list-style-type: decimal">
+<li>Install Docker - for instructions see <a href="https://docs.docker.com/get-docker/">here</a></li>
+<li>check out GeneMANIA_build from the Baderlab github (<a href="https://github.com/BaderLab/GeneMANIA_build.git" class="uri">https://github.com/BaderLab/GeneMANIA_build.git</a>)</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/BaderLab/GeneMANIA_build.git</code></pre></div>
+<ol start="3" type="1">
+<li>
+Create container of gmbuild_ensembl instance.
+</li>
+</ol>
+<ul>
+<li>each -v parameter specifies a local directory, or volume, that is mapped to a directory on the docker. For example, the directory /home/gmbuild/ensembl data on your machine gets mapped to the location /home/gmbuild/ensembl_data in the docker container. Any file that is put into that directory on the docker will show up on the corresponding directory on your machine.</li>
+<li>There are multiple volumes mapped to the ensembl_mirror
+<ul>
+<li>/home/gmbuild/ensembl_data --&gt; /home/gmbuild/ensembl_data</li>
+<li>/home/gmbuild/gmbuild_code_dir/genemania-private --&gt; /home/gmbuild/ensembl_code - This is the directory where you checked out the code in the previous step and contains all the code we will need to build the identifier mapping files.</li>
+<li>/home/gmbuild/gmbuild_code_dir/genemania-private/Docker_contatiners/Ensembl_docker/custom_cnf --&gt; /etc/mysql/conf.d - configuration files needed for the set up of mySQL instance on the docker.</li>
+<li>/home/gmbuild/db_files --&gt; /var/lib/mysql - directory where the mySQL database will store its data files.</li>
+<li>With the --name tag you can specify what you would like to call your instance. This name can be used when logging into the instance. For this example we have called this instance ensembl_mirror.</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> run -d
+<span class="ex">-v</span> /home/gmbuild/ensembl_data:/home/gmbuild/ensembl_data 
+<span class="ex">-v</span> /home/gmbuild/gmbuild_code_dir/genemania-private:/home/gmbuild/ensembl_code 
+<span class="ex">-v</span> /home/gmbuild/gmbuild_code_dir/genemania-private/Docker_containers/Ensembl_docker/custom_cnf:/etc/mysql/conf.d 
+<span class="ex">-v</span> /home/gmbuild/db_files:/var/lib/mysql 
+<span class="ex">--name</span> ensembl_mirror 
+<span class="ex">baderlab/gmbuild_ensembl</span></code></pre></div>
+<ol start="4" type="1">
+<li>
+Once the instance is created, log into it.
+</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> exec -it ensembl_mirror /bin/bash</code></pre></div>
+<ol start="5" type="1">
+<li>
+Download the ensembl data.
+</li>
+</ol>
+<ul>
+<li>On the docker you need to change into the directory ensembl_code/ensembl_mirror (remember that actually points to /home/gmbuild/gmbuild_code_dir/genemania-private on your main computer which is the directory containing the code that we downloaded from github.)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ensembl_code
+<span class="bu">cd</span> ensembl_mirror</code></pre></div>
+<ul>
+<li>Download the data - There are two separate scrits in the ensembl_code/ensembl_mirror that you can use to download the data. For a new species you will need to modify the scripts to make them specific for your organism.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>get_ensembl.sh - this script demonstrates how to download all the species that are currently available in the public GeneMANIA server. A selection of them are available from the main ensembl ftp site (including human, mouse, fly ....) but some are not (including e-coli and arabidopsis). This script shows how you need to specify the ftp site depending on the data you are grabbing.</li>
+<li>get_ensembl_indiv_species.sh - this script demonstrated how to donwload one example species. For this example we are using Tetrahymena which is available in ensemblgenomes protists section.</li>
+</ol>
+<ul>
+<li>Open get_ensembl_indiv_species.sh</li>
+<li>update script to have the following variables:
+<ul>
+<li>SPECIES='tetrahymena_thermophila_core'</li>
+<li>FTP_SITE='ftp.ebi.ac.uk/ensemblgenomes/pub/current/protists/mysql/'</li>
+</ul></li>
+</ul>
+<p>Depending on the species that you are using the species and the ftp_site variables will be different. Not all species are available on the ensembl servers (or available to RSync.). For the tetrahymena example, although the files are listed on the ensemblgenomes ftp site, the files failed to download using rsync. Changing to the ebi mirror fixed that issue.<br />
+There are many ftp sites you can check to see where your organism specific files are located. Ultimately, it depends which division the species falls into.</p>
+<ol style="list-style-type: decimal">
+<li>'ftp.ensembl.org/pub/current_mysql/'</li>
+<li>'ftp.ensemblgenomes.org/pub/current/plants/mysql/'</li>
+<li>'ftp.ensemblgenomes.org/pub/current/bacteria/mysql/'</li>
+<li>'ftp.ensemblgenomes.org/pub/current/fungi/mysql/'</li>
+<li>'ftp.ensemblgenomes.org/pub/current/protists/mysql/'</li>
+<li>'ftp.ensemblgenomes.org/pub/current/metazoa/mysql/'</li>
+</ol>
+<p>Navigate to the right division and find your species of interest. There will be additional numbers after the species name associated with the directory name but when setting the species variable just include the species name. The additional numbers indicate which release these files are associated with. <strong>Given that you want to get the current release, make sure that you don't include those numbers.</strong></p>
+<p align="center">
+<img src="images/example_species_name.png" alt="example ftp site data" width="75%"  />
+</p>
+<p>For the above directory found in the protist division we set the following variables:</p>
+<ul>
+<li>SPECIES='tetrahymena_thermophila_core'</li>
+<li>FTP_SITE='ftp.ensemblgenomes.org/pub/current/protists/mysql/'</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./get_ensembl_indiv_species.sh</span> </code></pre></div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Problem</strong>: When running <em>./get_ensembl_indiv_species.sh</em> nothing happens, the script finishes right away with no output.
+</p>
+<p>
+<strong>Solution</strong>: Check to see that you have defined the SPECIES variable correctly. * Go to ftp. ensembl.org/pub/current_mysql and check the spelling of your organism's directory.
+</p>
+</div>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Problem</strong>: ==&gt; Rsync tetrahymena_thermophila_core_51_104_1 FROM ftp.ensemblgenomes.org/pub/current/protists/mysql/: <span class="citation"><span class="citation">(<span class="citeproc-not-found" data-reference-id="ERROR"><strong>???</strong></span>)</span></span>: Unknown module 'pub' rsync error: error starting client-server protocol (code 5) at main.c(1666) [Receiver=3.1.2]
+</p>
+<p>
+[[ ERROR ]] : tetrahymena_thermophila_core_51_104_1 -- Trying again...
+</p>
+<p>
+<strong>Solution</strong>: The ensembl sites are not always consistent. Verify that you have got the address right but if the address right and you still get this error try using the ebi mirror instead:
+</p>
+</div>
+<p>When the script is done running you will find a directory in your ~/ensembl_data directory with today's data. In that directory you will find all of the ensembl files that were just downloaded.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> -r ~/ensembl_data/*/tetrahymena_thermophila_core*</code></pre></div>
+<p align="center">
+<img src="images/ensembl_downloaded.png" alt="downloaded ensembl files" width="75%"  />
+</p>
+<ol start="6" type="1">
+<li>
+Load ensembl data into local database.
+</li>
+</ol>
+<p>The next script will take all the files downloaded from ensembl and load them into a local mySQL database.</p>
+<div class="rmd-tip">
+<p>
+Using the gmbuild_ensembl docker will help with this step because there is no requirement to install mySQL. The docker instance comes with a compatible mySQL server.
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./create_ensembl.sh</span> </code></pre></div>
+<div class="rmd-troubleshooting">
+<p>
+mySQL 8 or greater no longer has INFORMATION_SCHEMA. If a database was exported from an older version of mySQL there might be references to INFORMATION_SCHEMA and script will crash with error. You can:
+</p>
+<ul>
+<li>
+<p>
+Update any file containing it from INFORMATION_SCHEMA to PERFORMANCE_SCHEMA
+</p>
+</li>
+<li>
+<p>
+Of alternately, Easy fix for this issue. Open mySQL and run the following command: set @<span class="citation"><span class="citation">(<span class="citeproc-not-found" data-reference-id="global.show_compatibility_56"><strong>???</strong></span>)</span></span>=ON;
+</p>
+</li>
+</ul>
+</div>
+<ol start="7" type="1">
+<li>
+Process ensembl data. Create summary files needed for GeneMANIA
+</li>
+</ol>
+<p>This step creates identifier mapping files as well as shared domain information present in ensembl associated with your species. Shared domains is not required for the build but they will be automatically created during this step.</p>
+<ul>
+<li>Change into the identifier mapping directory.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ../identifier-mapper-perl/</code></pre></div>
+<ul>
+<li>modify the runall_indiv_species.sh script to use your newly downloaded species data. - the runall.sh script shows how the main GeneMANIA build processes multiple species. The runall_indiv_species.sh runs the exact same process but only for one species.</li>
+</ul>
+<p>Update the line 34 of <em>runall_indiv_species.sh</em> to reflect your species of interest:</p>
+<ul>
+<li>./idmapper.pl $DATADIR/Work <strong>tetrahymena_thermophila</strong> <strong>Tt</strong> 19</li>
+<li>This line will call the idmapper perl script with parameters (in the following order, order is important):</li>
+<li>output directory $DATADIR/Work - don't change. The script automatically detects the newest ensembl data download directory and places the output files there.</li>
+<li>species name - Change to species of interest. For this example 'tetrahymena_thermophila'.</li>
+<li>species two letter code - change to two letters that best represent your species.</li>
+<li><p>random number - this is used when generating GeneMANIA unique identifers. If you have multiple species in your instance make sure that this number is different. In the above example, all random GeneMANIA identifiers will start with 19 for tetrahymena.</p>
+<p>Also, before running the script you need to update the configuration file. For this example the configuration file is spd_tetra.cfg. the only thing that needs to be updated in this file is the <strong>spd_org</strong> variable.</p></li>
+</ul>
+<div class="rmd-tip">
+<p>
+You can choose to modify the spd_tetra.cfg file or create a new file specific for you organims. If you create a new file for your organism make sure to update runall_indiv_species.sh line 37 to reflect the new file name.
+</p>
+<p>
+./1.export_spd_from_ensembl.sh $ensembl_version spd_tetra.cfg
+</p>
+<p>
+to
+</p>
+<p>
+./1.export_spd_from_ensembl.sh $ensembl_version &lt;new_spd_config_filename.cfg&gt;
+</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">[<span class="ex">BuildScriptsConfig</span>]
+<span class="co"># this section is for the configuration for the build process script</span>
+<span class="co"># ___[revision]_________________________________________</span>
+<span class="ex">revision</span> = R2
+
+<span class="co"># ensembl releases to use</span>
+<span class="ex">ensembl_core_release</span> =104
+<span class="ex">ensembl_plants_release</span> =51
+<span class="ex">ensembl_metazoa_release</span> =51
+<span class="ex">ensembl_bacteria_release</span> =51
+
+<span class="co">#had to move this because of issues with get_spd.pl script</span>
+<span class="co"># mysql host, username, password</span>
+<span class="ex">mysql_h</span> = localhost
+<span class="ex">mysql_u</span> = root
+<span class="ex">mysql_p</span> = gm.build
+
+<span class="co"># shared protein domain organisms</span>
+<span class="ex">spd_org</span> = tetrahymena_thermophila</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./runall_indiv_species.sh</span></code></pre></div>
+<p>Once the script is finished running you will have the following files and directories (It will exist both on the docker and on the computer that the docker is running on. Its location on main computer depends on what you set *-v /home/gmbuild/ensembl_<a href="data:/home/gmbuild/ensembl_data*" class="uri">data:/home/gmbuild/ensembl_data*</a> in the docker run command) :</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">ls</span> ~/ensembl_data
+
+<span class="ex">ensembl_data/</span>
+  <span class="ex">July_23_2021/</span>
+    <span class="ex">current_build.log</span>  
+    <span class="ex">tetrahymena_thermophila_core_51_104_1/</span>
+    <span class="ex">Work/</span>  
+      <span class="ex">ENSEMBL_ENTREZ_Tt</span>  
+      <span class="ex">Tt_done.txt</span>   
+      <span class="ex">spd/</span>
+        <span class="ex">interpro/</span>
+        <span class="ex">pfam/</span></code></pre></div>
+<p>The <em>ENSEMBL_ENTREZ_Tt</em> file is the identifier mapping file. If you have additional identifier mapping data that is not present in Ensembl you can modify this file directly (make sure to keep the overall structure) but, for example, Tetrahymena maintains gene names that are not incorporated into Ensembl. (table of gene names can be found here - <a href="http://ciliate.org/index.php/show/namedgenes" class="uri">http://ciliate.org/index.php/show/namedgenes</a>) Through Scripting or Excel you can add these gene symbols to the <em>ENSEMBL_ENTREZ_Tt</em>.</p>
+<p><strong>Main output of this step is the directory with all its files. This directory will be mapped onto the main genemania data build docker and used in subsequent steps.</strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">~/ensembl_data/July_23_2021/Work</span></code></pre></div>
+<p>The ~/ensembl_data/July_23_2021/Work/spd directory contains shared domains networks computed from the ensembl data. Under the <em>spd</em> directory there are two directories (interpro and pfam) each containing a directory for the organism(s) being analyzed with the shared domain interactions.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Website_Stage1_identifier_mapping.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["build-genemania.pdf", "build-genemania.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

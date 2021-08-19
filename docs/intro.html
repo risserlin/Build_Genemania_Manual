@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Introduction | Building GeneMANIA</title>
+  <meta name="description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Introduction | Building GeneMANIA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  <meta name="github-repo" content="risserlin/Build_Genemania_Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Introduction | Building GeneMANIA" />
+  
+  <meta name="twitter:description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+<meta name="date" content="2021-08-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="website-build-stage-1-identifier-mapping-file.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Building GeneMANAIA Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Attributions:</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html"><i class="fa fa-check"></i><b>3</b> Website build Stage 1 - Identifier mapping file</a><ul>
+<li class="chapter" data-level="3.1" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html#how-to-build-your-identifier-file"><i class="fa fa-check"></i><b>3.1</b> How to build your identifier file</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html#create-and-setup-a-container-of-the-ensembl-mirror-docker-instance"><i class="fa fa-check"></i><b>3.1.1</b> Create and setup a container of the ensembl mirror docker instance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><i class="fa fa-check"></i><b>4</b> Website build Stage 2 - Gather and clean network and attribute data</a><ul>
+<li class="chapter" data-level="4.1" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#how-to-build-your-data"><i class="fa fa-check"></i><b>4.1</b> How to build your data</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#create-and-setup-a-container-of-the-gmbuild-data-docker-instance"><i class="fa fa-check"></i><b>4.1.1</b> Create and setup a container of the gmbuild data docker instance</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#gene-ontology-annotation"><i class="fa fa-check"></i><b>4.2</b> Gene Ontology annotation</a></li>
+<li class="chapter" data-level="4.3" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#static-networks"><i class="fa fa-check"></i><b>4.3</b> Static Networks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Building GeneMANIA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
+<p>When researching with an organism not present in GeneMANIA<span class="citation">(Warde-Farley et al. <a href="#ref-genemania">2010</a>)</span> it can be beneficial to pool together all the data that you have for your organism and create your own instance. There are two ways you can create your own instance of GeneMANIA:</p>
+<ol style="list-style-type: decimal">
+<li>Local version of GeneMANIA in cytoscape - only available to you on the device that it is created on. It is quick to set up and offers all the functionality available in the GeneMANIA cytoscape App.</li>
+<li>Local version of GeneMANIA website - if you expose this website to the internet you can share this resource with your colleagues. Considerably more work to set up but all the code and parts are available in github and docker instances.</li>
+</ol>
+<p>For both of the above instances the bulk of the work required is collecting, translating and creating id conversions and networks, for your desired species, that are used in GeneMANIA. Given that this is an organism of interest to you likely you have a lot of the information or know where to get it.</p>
+<div id="overview" class="section level2">
+<h2><span class="header-section-number">2.1</span> Overview</h2>
+<p>There are three major components to the GeneMANIA system. (Only the first two are required for both methods of creating your own instance, identifiers and Network, annotation and attribute data):</p>
+<ol style="list-style-type: decimal">
+<li><strong>Identifiers</strong> - mapping from all the different identifiers available for your species of interest. Ideally the mappping files contain all and any identifiers used for the species. For example, the human dataset in GeneMANIA has hgnc symbol, entrez gene ids, refseq ids, ensembl ids and uniprot ids.</li>
+<li><strong>Network, annotation and attribure data</strong> - tables of interactions and associations between your entities (enumerated with one of the above identifiers). Each interaction is associated with a score. If the data in question doesn't have a score then it has the score of 1 (ie. it is present in the dataset)</li>
+<li><strong>Indexed data</strong> - Once all the previous data is collected and cleaned the last step involves indexing the data using <a href="https://lucene.apache.org/">lucene</a>.</li>
+</ol>
+<p>For the purpose of this tutorial we will be creating an instance of GeneMANIA using <a href="http://ciliate.org/index.php/home/welcome">Tetrahymena</a>.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-genemania">
+<p>Warde-Farley, David, Sylva L Donaldson, Ovi Comes, Khalid Zuberi, Rashad Badrawi, Pauline Chao, Max Franz, et al. 2010. “The Genemania Prediction Server: Biological Network Integration for Gene Prioritization and Predicting Gene Function.” <em>Nucleic Acids Research</em> 38 (suppl_2). Oxford University Press: W214–W220.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="website-build-stage-1-identifier-mapping-file.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["build-genemania.pdf", "build-genemania.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

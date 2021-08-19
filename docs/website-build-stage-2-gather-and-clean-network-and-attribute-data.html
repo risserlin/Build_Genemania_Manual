@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Website build Stage 2 - Gather and clean network and attribute data | Building GeneMANIA</title>
+  <meta name="description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Website build Stage 2 - Gather and clean network and attribute data | Building GeneMANIA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  <meta name="github-repo" content="risserlin/Build_Genemania_Manual" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Website build Stage 2 - Gather and clean network and attribute data | Building GeneMANIA" />
+  
+  <meta name="twitter:description" content="This bookdown outlines how to create your own instance of GeneMANIA from any species of interest" />
+  
+
+<meta name="author" content="Ruth Isserlin" />
+
+
+<meta name="date" content="2021-08-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="website-build-stage-1-identifier-mapping-file.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Building GeneMANAIA Manual</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Attributions:</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html"><i class="fa fa-check"></i><b>3</b> Website build Stage 1 - Identifier mapping file</a><ul>
+<li class="chapter" data-level="3.1" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html#how-to-build-your-identifier-file"><i class="fa fa-check"></i><b>3.1</b> How to build your identifier file</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="website-build-stage-1-identifier-mapping-file.html"><a href="website-build-stage-1-identifier-mapping-file.html#create-and-setup-a-container-of-the-ensembl-mirror-docker-instance"><i class="fa fa-check"></i><b>3.1.1</b> Create and setup a container of the ensembl mirror docker instance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><i class="fa fa-check"></i><b>4</b> Website build Stage 2 - Gather and clean network and attribute data</a><ul>
+<li class="chapter" data-level="4.1" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#how-to-build-your-data"><i class="fa fa-check"></i><b>4.1</b> How to build your data</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#create-and-setup-a-container-of-the-gmbuild-data-docker-instance"><i class="fa fa-check"></i><b>4.1.1</b> Create and setup a container of the gmbuild data docker instance</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#gene-ontology-annotation"><i class="fa fa-check"></i><b>4.2</b> Gene Ontology annotation</a></li>
+<li class="chapter" data-level="4.3" data-path="website-build-stage-2-gather-and-clean-network-and-attribute-data.html"><a href="website-build-stage-2-gather-and-clean-network-and-attribute-data.html#static-networks"><i class="fa fa-check"></i><b>4.3</b> Static Networks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Building GeneMANIA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="website-build-stage-2---gather-and-clean-network-and-attribute-data" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Website build Stage 2 - Gather and clean network and attribute data</h1>
+<p>The objective of this stage is collect all the network and attribute data that we are going to use in this instance of GeneMANIA. Depending on the species there will be varying sources that the data can come from. For the main GeneMANIA there are scripts to download and format data from:</p>
+<ol style="list-style-type: decimal">
+<li>Identifiers - extracted from Ensembl in the previous stage.</li>
+<li>Gene Ontology annotation - downloaded from <a href="http://geneontology.org/">GO</a> in <a href="http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/">GAF format</a></li>
+<li><a href="https://thebiogrid.org/">Biogrid</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a> - imports expression datasets from specified platform series identifiers specified in configuration file.</li>
+<li><a href="http://ophid.utoronto.ca/ophidv2.204/">I2D</a></li>
+<li><a href="https://irefindex.vib.be/wiki/index.php/iRefIndex">iRef</a> - static resource</li>
+<li><a href="https://www.pathwaycommons.org/">Pathway Commons</a> - static resources from 2011</li>
+<li>Shared Protein Domains - as calculated from the files created from the Ensembl export in the previous step.</li>
+<li>Static Networks - networks created and curated manually.</li>
+</ol>
+<p>All of the configuration happens in the genemania config file. For the above resources you need to specify what organisms you wish to download. If there are no tag specified in the config file then nothing will be downloaded and that step will be skipped. Each of the above data sources will be expanded on below. They each have their own script to download and process them.</p>
+<div id="how-to-build-your-data" class="section level2">
+<h2><span class="header-section-number">4.1</span> How to build your data</h2>
+<p>In order to build the data we need to create an genemania_databuild docker container. It will need your identifier file that you created in the previous step.</p>
+<div id="create-and-setup-a-container-of-the-gmbuild-data-docker-instance" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Create and setup a container of the gmbuild data docker instance</h3>
+<p>The docker instance that we are going to use can be found <a href="https://hub.docker.com/repository/docker/baderlab/genemania_databuild_base">here</a> - genemania_databuild_base.</p>
+<ol style="list-style-type: decimal">
+<li>Install Docker - for instructions see <a href="https://docs.docker.com/get-docker/">here</a></li>
+<li>check out GeneMANIA_build from the Baderlab github (<a href="https://github.com/BaderLab/GeneMANIA_build.git" class="uri">https://github.com/BaderLab/GeneMANIA_build.git</a>)</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/BaderLab/GeneMANIA_build.git</code></pre></div>
+<ol start="3" type="1">
+<li>
+Create container of genemania_databuild_base instance.
+</li>
+</ol>
+<ul>
+<li>each -v parameter specifies a local directory, or volume, that is mapped to a directory on the docker. For example, the directory /home/gmbuild/ensembl data on your machine gets mapped to the location /home/gmbuild/ensembl_data in the docker container. Any file that is put into that directory on the docker will show up on the corresponding directory on your machine.</li>
+<li>There are multiple volumes mapped to the ensembl_mirror
+<ul>
+<li>/home/gmbuild/Tetrahymena/ensembl_data/July_23_2021/Work --&gt; /home/gmbuild/ensembl_data</li>
+<li>/home/gmbuild/Tetrahymena/gm_data --&gt; /home/gmbuild/dev - This is the directory where all the code and data is going to be built. When the container is created it will create a directory on the docker in /home/gmbuild/dev/r# (r# is specified in the next variable). This directory will contain the following structure:</li>
+<li>bp</li>
+<li>data</li>
+<li>db</li>
+<li>src</li>
+</ul></li>
+<li>-e VERSION=r1 - specifies an environment variable that is used when the container is first created. On creation a direcotry will be created with the revision number and the config file will be updated to reflect this version</li>
+</ul>
+<div class="rmd-troubleshooting">
+<p>
+<strong>Problem</strong>: If you want to use the same docker for multiple builds of the data you will have to create the directory structure and update config file manually.
+</p>
+<p>
+<strong>Solution</strong>: Recommendation - create a new docker container for every revision to initialized everything correctly
+</p>
+</div>
+<ul>
+<li>With the --name tag you can specify what you would like to call your instance. This name can be used when logging into the instance. For this example we have called this instance genemania_build_tetrahymena.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">
+<span class="ex">docker</span> run -dit 
+<span class="ex">-v</span> /home/gmbuild/Tetrahymena/ensembl_data/July_23_2021/Work:/home/gmbuild/ensembl_data 
+<span class="ex">-v</span> /home/gmbuild/Tetrahymena/gm_data:/home/gmbuild/dev 
+<span class="ex">-v</span> /home/gmbuild/Tetrahymena/db_build:/gm/db_build 
+<span class="ex">-e</span> VERSION=r1 
+<span class="ex">--name</span> genemania_build_tetrahymena 
+<span class="ex">baderlab/genemania_databuild_base</span> /bin/bash</code></pre></div>
+<ol start="4" type="1">
+<li>
+Once the instance is created, log into it.
+</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> exec -it genemania_build_tetrahymena /bin/bash</code></pre></div>
+</div>
+</div>
+<div id="gene-ontology-annotation" class="section level2">
+<h2><span class="header-section-number">4.2</span> Gene Ontology annotation</h2>
+</div>
+<div id="static-networks" class="section level2">
+<h2><span class="header-section-number">4.3</span> Static Networks</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="website-build-stage-1-identifier-mapping-file.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-Website_Stage2_data_build.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["build-genemania.pdf", "build-genemania.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

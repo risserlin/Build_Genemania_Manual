@@ -1,0 +1,860 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={Building GeneMANIA},
+            pdfauthor={Ruth Isserlin},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+% create callout boxes:
+\newenvironment{rmdblock}[1]
+  {\begin{shaded*}
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \item
+  }
+  {
+  \end{itemize}
+  \end{shaded*}
+  }
+\newenvironment{rmd-datadownload}
+  {\begin{rmdblock}{datadownload}}
+  {\end{rmdblock}}
+\newenvironment{rmd-note}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmd-troubleshooting}
+  {\begin{rmdblock}{troubleshooting}}
+  {\end{rmdblock}}
+\newenvironment{rmd-tip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+
+\title{Building GeneMANIA}
+\author{Ruth Isserlin}
+\date{2021-08-19}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{Attributions:}\label{attributions}
+
+This book was created using The \textbf{bookdown}\citep{xie2015} package
+and can be installed from CRAN or Github:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
+\CommentTok{# or the development version}
+\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+Icons are from the
+\href{https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop}{``Very
+Basic. Android L Lollipop'' set by Ivan Boyko} licensed under
+\href{https://creativecommons.org/licenses/by/3.0/}{CC BY 3.0}.
+
+\chapter{Introduction}\label{intro}
+
+When researching with an organism not present in
+GeneMANIA\citep{genemania} it can be beneficial to pool together all the
+data that you have for your organism and create your own instance. There
+are two ways you can create your own instance of GeneMANIA:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Local version of GeneMANIA in cytoscape - only available to you on the
+  device that it is created on. It is quick to set up and offers all the
+  functionality available in the GeneMANIA cytoscape App.
+\item
+  Local version of GeneMANIA website - if you expose this website to the
+  internet you can share this resource with your colleagues.
+  Considerably more work to set up but all the code and parts are
+  available in github and docker instances.
+\end{enumerate}
+
+For both of the above instances the bulk of the work required is
+collecting, translating and creating id conversions and networks, for
+your desired species, that are used in GeneMANIA. Given that this is an
+organism of interest to you likely you have a lot of the information or
+know where to get it.
+
+\section{Overview}\label{overview}
+
+There are three major components to the GeneMANIA system. (Only the
+first two are required for both methods of creating your own instance,
+identifiers and Network, annotation and attribute data):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Identifiers} - mapping from all the different identifiers
+  available for your species of interest. Ideally the mappping files
+  contain all and any identifiers used for the species. For example, the
+  human dataset in GeneMANIA has hgnc symbol, entrez gene ids, refseq
+  ids, ensembl ids and uniprot ids.
+\item
+  \textbf{Network, annotation and attribure data} - tables of
+  interactions and associations between your entities (enumerated with
+  one of the above identifiers). Each interaction is associated with a
+  score. If the data in question doesn't have a score then it has the
+  score of 1 (ie. it is present in the dataset)
+\item
+  \textbf{Indexed data} - Once all the previous data is collected and
+  cleaned the last step involves indexing the data using
+  \href{https://lucene.apache.org/}{lucene}.
+\end{enumerate}
+
+For the purpose of this tutorial we will be creating an instance of
+GeneMANIA using
+\href{http://ciliate.org/index.php/home/welcome}{Tetrahymena}.
+
+\chapter{Website build Stage 1 - Identifier mapping
+file}\label{website-build-stage-1---identifier-mapping-file}
+
+In the main GeneMANIA instance all identifier mapping is extracted from
+the mySQL data dumps released by ensembl -
+
+There is no requirement to have all the specified identifiers or to get
+your mappings from ensembl but your identifier mapping file for the
+website build needs to have the following format:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  GMID - automatically generated unique genemania identifier. It is
+  specific to the instance of the website and not to any external
+  database.
+\item
+  Ensembl Gene ID\\
+\item
+  Protein Coding
+\item
+  Gene Name\\
+\item
+  Ensembl Transcript ID\\
+\item
+  Ensembl Protein ID
+\item
+  Uniprot ID
+\item
+  Entrez Gene ID
+\item
+  RefSeq mRNA ID
+\item
+  RefSeq Protein ID\\
+\item
+  Synonyms\\
+\item
+  Definition
+\end{enumerate}
+
+\section{How to build your identifier
+file}\label{how-to-build-your-identifier-file}
+
+In order to build the identifier file we need to create an ensembl
+mirror for the desired organism, import all the ensembl data and export
+the desired data into the above specified format.
+
+\subsection{Create and setup a container of the ensembl mirror docker
+instance}\label{create-and-setup-a-container-of-the-ensembl-mirror-docker-instance}
+
+The docker instance that we are going to use can be found
+\href{https://hub.docker.com/repository/docker/baderlab/gmbuild_ensembl}{here}
+- gmbuild\_ensembl.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Install Docker - for instructions see
+  \href{https://docs.docker.com/get-docker/}{here}
+\item
+  check out GeneMANIA\_build from the Baderlab github
+  (\url{https://github.com/BaderLab/GeneMANIA_build.git})
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone https://github.com/BaderLab/GeneMANIA_build.git}
+\end{Highlighting}
+\end{Shaded}
+
+Create container of gmbuild\_ensembl instance.
+
+\begin{itemize}
+\tightlist
+\item
+  each -v parameter specifies a local directory, or volume, that is
+  mapped to a directory on the docker. For example, the directory
+  /home/gmbuild/ensembl data on your machine gets mapped to the location
+  /home/gmbuild/ensembl\_data in the docker container. Any file that is
+  put into that directory on the docker will show up on the
+  corresponding directory on your machine.
+\item
+  There are multiple volumes mapped to the ensembl\_mirror
+
+  \begin{itemize}
+  \tightlist
+  \item
+    /home/gmbuild/ensembl\_data --\textgreater{}
+    /home/gmbuild/ensembl\_data
+  \item
+    /home/gmbuild/gmbuild\_code\_dir/genemania-private --\textgreater{}
+    /home/gmbuild/ensembl\_code - This is the directory where you
+    checked out the code in the previous step and contains all the code
+    we will need to build the identifier mapping files.
+  \item
+    /home/gmbuild/gmbuild\_code\_dir/genemania-private/Docker\_contatiners/Ensembl\_docker/custom\_cnf
+    --\textgreater{} /etc/mysql/conf.d - configuration files needed for
+    the set up of mySQL instance on the docker.
+  \item
+    /home/gmbuild/db\_files --\textgreater{} /var/lib/mysql - directory
+    where the mySQL database will store its data files.
+  \item
+    With the --name tag you can specify what you would like to call your
+    instance. This name can be used when logging into the instance. For
+    this example we have called this instance ensembl\_mirror.
+  \end{itemize}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{docker}\NormalTok{ run -d}
+\ExtensionTok{-v}\NormalTok{ /home/gmbuild/ensembl_data:/home/gmbuild/ensembl_data }
+\ExtensionTok{-v}\NormalTok{ /home/gmbuild/gmbuild_code_dir/genemania-private:/home/gmbuild/ensembl_code }
+\ExtensionTok{-v}\NormalTok{ /home/gmbuild/gmbuild_code_dir/genemania-private/Docker_containers/Ensembl_docker/custom_cnf:/etc/mysql/conf.d }
+\ExtensionTok{-v}\NormalTok{ /home/gmbuild/db_files:/var/lib/mysql }
+\ExtensionTok{--name}\NormalTok{ ensembl_mirror }
+\ExtensionTok{baderlab/gmbuild_ensembl}
+\end{Highlighting}
+\end{Shaded}
+
+Once the instance is created, log into it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{docker}\NormalTok{ exec -it ensembl_mirror /bin/bash}
+\end{Highlighting}
+\end{Shaded}
+
+Download the ensembl data.
+
+\begin{itemize}
+\tightlist
+\item
+  On the docker you need to change into the directory
+  ensembl\_code/ensembl\_mirror (remember that actually points to
+  /home/gmbuild/gmbuild\_code\_dir/genemania-private on your main
+  computer which is the directory containing the code that we downloaded
+  from github.)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ ensembl_code}
+\BuiltInTok{cd}\NormalTok{ ensembl_mirror}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Download the data - There are two separate scrits in the
+  ensembl\_code/ensembl\_mirror that you can use to download the data.
+  For a new species you will need to modify the scripts to make them
+  specific for your organism.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  get\_ensembl.sh - this script demonstrates how to download all the
+  species that are currently available in the public GeneMANIA server. A
+  selection of them are available from the main ensembl ftp site
+  (including human, mouse, fly \ldots{}.) but some are not (including
+  e-coli and arabidopsis). This script shows how you need to specify the
+  ftp site depending on the data you are grabbing.
+\item
+  get\_ensembl\_indiv\_species.sh - this script demonstrated how to
+  donwload one example species. For this example we are using
+  Tetrahymena which is available in ensemblgenomes protists section.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Open get\_ensembl\_indiv\_species.sh
+\item
+  update script to have the following variables:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    SPECIES=`tetrahymena\_thermophila\_core'
+  \item
+    FTP\_SITE=`ftp.ebi.ac.uk/ensemblgenomes/pub/current/protists/mysql/'
+  \end{itemize}
+\end{itemize}
+
+Depending on the species that you are using the species and the
+ftp\_site variables will be different. Not all species are available on
+the ensembl servers (or available to RSync.). For the tetrahymena
+example, although the files are listed on the ensemblgenomes ftp site,
+the files failed to download using rsync. Changing to the ebi mirror
+fixed that issue.\\
+There are many ftp sites you can check to see where your organism
+specific files are located. Ultimately, it depends which division the
+species falls into.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  `ftp.ensembl.org/pub/current\_mysql/'
+\item
+  `ftp.ensemblgenomes.org/pub/current/plants/mysql/'
+\item
+  `ftp.ensemblgenomes.org/pub/current/bacteria/mysql/'
+\item
+  `ftp.ensemblgenomes.org/pub/current/fungi/mysql/'
+\item
+  `ftp.ensemblgenomes.org/pub/current/protists/mysql/'
+\item
+  `ftp.ensemblgenomes.org/pub/current/metazoa/mysql/'
+\end{enumerate}
+
+Navigate to the right division and find your species of interest. There
+will be additional numbers after the species name associated with the
+directory name but when setting the species variable just include the
+species name. The additional numbers indicate which release these files
+are associated with. \textbf{Given that you want to get the current
+release, make sure that you don't include those numbers.}
+
+For the above directory found in the protist division we set the
+following variables:
+
+\begin{itemize}
+\tightlist
+\item
+  SPECIES=`tetrahymena\_thermophila\_core'
+\item
+  FTP\_SITE=`ftp.ensemblgenomes.org/pub/current/protists/mysql/'
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./get_ensembl_indiv_species.sh} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{rmd-troubleshooting}
+\textbf{Problem}: When running \emph{./get\_ensembl\_indiv\_species.sh}
+nothing happens, the script finishes right away with no output.
+
+\textbf{Solution}: Check to see that you have defined the SPECIES
+variable correctly. * Go to ftp. ensembl.org/pub/current\_mysql and
+check the spelling of your organism's directory.
+\end{rmd-troubleshooting}
+
+\begin{rmd-troubleshooting}
+\textbf{Problem}: ==\textgreater{} Rsync
+tetrahymena\_thermophila\_core\_51\_104\_1 FROM
+ftp.ensemblgenomes.org/pub/current/protists/mysql/: @ERROR: Unknown
+module `pub' rsync error: error starting client-server protocol (code 5)
+at main.c(1666) {[}Receiver=3.1.2{]}
+
+{[}{[} ERROR {]}{]} : tetrahymena\_thermophila\_core\_51\_104\_1 --
+Trying again\ldots{}
+
+\textbf{Solution}: The ensembl sites are not always consistent. Verify
+that you have got the address right but if the address right and you
+still get this error try using the ebi mirror instead:
+\end{rmd-troubleshooting}
+
+When the script is done running you will find a directory in your
+\textasciitilde{}/ensembl\_data directory with today's data. In that
+directory you will find all of the ensembl files that were just
+downloaded.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ls}\NormalTok{ -r ~/ensembl_data/*/tetrahymena_thermophila_core*}
+\end{Highlighting}
+\end{Shaded}
+
+Load ensembl data into local database.
+
+The next script will take all the files downloaded from ensembl and load
+them into a local mySQL database.
+
+\begin{rmd-tip}
+Using the gmbuild\_ensembl docker will help with this step because there
+is no requirement to install mySQL. The docker instance comes with a
+compatible mySQL server.
+\end{rmd-tip}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./create_ensembl.sh} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{rmd-troubleshooting}
+mySQL 8 or greater no longer has INFORMATION\_SCHEMA. If a database was
+exported from an older version of mySQL there might be references to
+INFORMATION\_SCHEMA and script will crash with error. You can:
+
+\begin{itemize}
+\item
+  Update any file containing it from INFORMATION\_SCHEMA to
+  PERFORMANCE\_SCHEMA
+\item
+  Of alternately, Easy fix for this issue. Open mySQL and run the
+  following command: set @@global.show\_compatibility\_56=ON;
+\end{itemize}
+\end{rmd-troubleshooting}
+
+Process ensembl data. Create summary files needed for GeneMANIA
+
+This step creates identifier mapping files as well as shared domain
+information present in ensembl associated with your species. Shared
+domains is not required for the build but they will be automatically
+created during this step.
+
+\begin{itemize}
+\tightlist
+\item
+  Change into the identifier mapping directory.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ ../identifier-mapper-perl/}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  modify the runall\_indiv\_species.sh script to use your newly
+  downloaded species data. - the runall.sh script shows how the main
+  GeneMANIA build processes multiple species. The
+  runall\_indiv\_species.sh runs the exact same process but only for one
+  species.
+\end{itemize}
+
+Update the line 34 of \emph{runall\_indiv\_species.sh} to reflect your
+species of interest:
+
+\begin{itemize}
+\item
+  ./idmapper.pl \$DATADIR/Work \textbf{tetrahymena\_thermophila}
+  \textbf{Tt} 19
+\item
+  This line will call the idmapper perl script with parameters (in the
+  following order, order is important):
+\item
+  output directory \$DATADIR/Work - don't change. The script
+  automatically detects the newest ensembl data download directory and
+  places the output files there.
+\item
+  species name - Change to species of interest. For this example
+  `tetrahymena\_thermophila'.
+\item
+  species two letter code - change to two letters that best represent
+  your species.
+\item
+  random number - this is used when generating GeneMANIA unique
+  identifers. If you have multiple species in your instance make sure
+  that this number is different. In the above example, all random
+  GeneMANIA identifiers will start with 19 for tetrahymena.
+
+  Also, before running the script you need to update the configuration
+  file. For this example the configuration file is spd\_tetra.cfg. the
+  only thing that needs to be updated in this file is the
+  \textbf{spd\_org} variable.
+\end{itemize}
+
+\begin{rmd-tip}
+You can choose to modify the spd\_tetra.cfg file or create a new file
+specific for you organims. If you create a new file for your organism
+make sure to update runall\_indiv\_species.sh line 37 to reflect the new
+file name.
+
+./1.export\_spd\_from\_ensembl.sh \$ensembl\_version spd\_tetra.cfg
+
+to
+
+./1.export\_spd\_from\_ensembl.sh \$ensembl\_version
+\textless{}new\_spd\_config\_filename.cfg\textgreater{}
+\end{rmd-tip}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{[}\ExtensionTok{BuildScriptsConfig}\NormalTok{]}
+\CommentTok{# this section is for the configuration for the build process script}
+\CommentTok{# ___[revision]_________________________________________}
+\ExtensionTok{revision}\NormalTok{ = R2}
+
+\CommentTok{# ensembl releases to use}
+\ExtensionTok{ensembl_core_release}\NormalTok{ =104}
+\ExtensionTok{ensembl_plants_release}\NormalTok{ =51}
+\ExtensionTok{ensembl_metazoa_release}\NormalTok{ =51}
+\ExtensionTok{ensembl_bacteria_release}\NormalTok{ =51}
+
+\CommentTok{#had to move this because of issues with get_spd.pl script}
+\CommentTok{# mysql host, username, password}
+\ExtensionTok{mysql_h}\NormalTok{ = localhost}
+\ExtensionTok{mysql_u}\NormalTok{ = root}
+\ExtensionTok{mysql_p}\NormalTok{ = gm.build}
+
+\CommentTok{# shared protein domain organisms}
+\ExtensionTok{spd_org}\NormalTok{ = tetrahymena_thermophila}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./runall_indiv_species.sh}
+\end{Highlighting}
+\end{Shaded}
+
+Once the script is finished running you will have the following files
+and directories (It will exist both on the docker and on the computer
+that the docker is running on. Its location on main computer depends on
+what you set *-v
+/home/gmbuild/ensembl\_\url{data:/home/gmbuild/ensembl_data*} in the
+docker run command) :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ls}\NormalTok{ ~/ensembl_data}
+
+\ExtensionTok{ensembl_data/}
+  \ExtensionTok{July_23_2021/}
+    \ExtensionTok{current_build.log}  
+    \ExtensionTok{tetrahymena_thermophila_core_51_104_1/}
+    \ExtensionTok{Work/}  
+      \ExtensionTok{ENSEMBL_ENTREZ_Tt}  
+      \ExtensionTok{Tt_done.txt}   
+      \ExtensionTok{spd/}
+        \ExtensionTok{interpro/}
+        \ExtensionTok{pfam/}
+\end{Highlighting}
+\end{Shaded}
+
+The \emph{ENSEMBL\_ENTREZ\_Tt} file is the identifier mapping file. If
+you have additional identifier mapping data that is not present in
+Ensembl you can modify this file directly (make sure to keep the overall
+structure) but, for example, Tetrahymena maintains gene names that are
+not incorporated into Ensembl. (table of gene names can be found here -
+\url{http://ciliate.org/index.php/show/namedgenes}) Through Scripting or
+Excel you can add these gene symbols to the \emph{ENSEMBL\_ENTREZ\_Tt}.
+
+\textbf{Main output of this step is the directory with all its files.
+This directory will be mapped onto the main genemania data build docker
+and used in subsequent steps.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{~/ensembl_data/July_23_2021/Work}
+\end{Highlighting}
+\end{Shaded}
+
+The \textasciitilde{}/ensembl\_data/July\_23\_2021/Work/spd directory
+contains shared domains networks computed from the ensembl data. Under
+the \emph{spd} directory there are two directories (interpro and pfam)
+each containing a directory for the organism(s) being analyzed with the
+shared domain interactions.
+
+\chapter{Website build Stage 2 - Gather and clean network and attribute
+data}\label{website-build-stage-2---gather-and-clean-network-and-attribute-data}
+
+The objective of this stage is collect all the network and attribute
+data that we are going to use in this instance of GeneMANIA. Depending
+on the species there will be varying sources that the data can come
+from. For the main GeneMANIA there are scripts to download and format
+data from:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Identifiers - extracted from Ensembl in the previous stage.
+\item
+  Gene Ontology annotation - downloaded from
+  \href{http://geneontology.org/}{GO} in
+  \href{http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/}{GAF
+  format}
+\item
+  \href{https://thebiogrid.org/}{Biogrid}
+\item
+  \href{https://www.ncbi.nlm.nih.gov/geo/}{GEO} - imports expression
+  datasets from specified platform series identifiers specified in
+  configuration file.
+\item
+  \href{http://ophid.utoronto.ca/ophidv2.204/}{I2D}
+\item
+  \href{https://irefindex.vib.be/wiki/index.php/iRefIndex}{iRef} -
+  static resource
+\item
+  \href{https://www.pathwaycommons.org/}{Pathway Commons} - static
+  resources from 2011
+\item
+  Shared Protein Domains - as calculated from the files created from the
+  Ensembl export in the previous step.
+\item
+  Static Networks - networks created and curated manually.
+\end{enumerate}
+
+All of the configuration happens in the genemania config file. For the
+above resources you need to specify what organisms you wish to download.
+If there are no tag specified in the config file then nothing will be
+downloaded and that step will be skipped. Each of the above data sources
+will be expanded on below. They each have their own script to download
+and process them.
+
+\section{How to build your data}\label{how-to-build-your-data}
+
+In order to build the data we need to create an genemania\_databuild
+docker container. It will need your identifier file that you created in
+the previous step.
+
+\subsection{Create and setup a container of the gmbuild data docker
+instance}\label{create-and-setup-a-container-of-the-gmbuild-data-docker-instance}
+
+The docker instance that we are going to use can be found
+\href{https://hub.docker.com/repository/docker/baderlab/genemania_databuild_base}{here}
+- genemania\_databuild\_base.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Install Docker - for instructions see
+  \href{https://docs.docker.com/get-docker/}{here}
+\item
+  check out GeneMANIA\_build from the Baderlab github
+  (\url{https://github.com/BaderLab/GeneMANIA_build.git})
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone https://github.com/BaderLab/GeneMANIA_build.git}
+\end{Highlighting}
+\end{Shaded}
+
+Create container of genemania\_databuild\_base instance.
+
+\begin{itemize}
+\tightlist
+\item
+  each -v parameter specifies a local directory, or volume, that is
+  mapped to a directory on the docker. For example, the directory
+  /home/gmbuild/ensembl data on your machine gets mapped to the location
+  /home/gmbuild/ensembl\_data in the docker container. Any file that is
+  put into that directory on the docker will show up on the
+  corresponding directory on your machine.
+\item
+  There are multiple volumes mapped to the ensembl\_mirror
+
+  \begin{itemize}
+  \tightlist
+  \item
+    /home/gmbuild/Tetrahymena/ensembl\_data/July\_23\_2021/Work
+    --\textgreater{} /home/gmbuild/ensembl\_data
+  \item
+    /home/gmbuild/Tetrahymena/gm\_data --\textgreater{}
+    /home/gmbuild/dev - This is the directory where all the code and
+    data is going to be built. When the container is created it will
+    create a directory on the docker in /home/gmbuild/dev/r\# (r\# is
+    specified in the next variable). This directory will contain the
+    following structure:
+  \item
+    bp
+  \item
+    data
+  \item
+    db
+  \item
+    src
+  \end{itemize}
+\item
+  -e VERSION=r1 - specifies an environment variable that is used when
+  the container is first created. On creation a direcotry will be
+  created with the revision number and the config file will be updated
+  to reflect this version
+\end{itemize}
+
+\begin{rmd-troubleshooting}
+\textbf{Problem}: If you want to use the same docker for multiple builds
+of the data you will have to create the directory structure and update
+config file manually.
+
+\textbf{Solution}: Recommendation - create a new docker container for
+every revision to initialized everything correctly
+\end{rmd-troubleshooting}
+
+\begin{itemize}
+\tightlist
+\item
+  With the --name tag you can specify what you would like to call your
+  instance. This name can be used when logging into the instance. For
+  this example we have called this instance
+  genemania\_build\_tetrahymena.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\ExtensionTok{docker}\NormalTok{ run -dit }
+\ExtensionTok{-v}\NormalTok{ /home/gmbuild/Tetrahymena/ensembl_data/July_23_2021/Work:/home/gmbuild/ensembl_data }
+\ExtensionTok{-v}\NormalTok{ /home/gmbuild/Tetrahymena/gm_data:/home/gmbuild/dev }
+\ExtensionTok{-v}\NormalTok{ /home/gmbuild/Tetrahymena/db_build:/gm/db_build }
+\ExtensionTok{-e}\NormalTok{ VERSION=r1 }
+\ExtensionTok{--name}\NormalTok{ genemania_build_tetrahymena }
+\ExtensionTok{baderlab/genemania_databuild_base}\NormalTok{ /bin/bash}
+\end{Highlighting}
+\end{Shaded}
+
+Once the instance is created, log into it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{docker}\NormalTok{ exec -it genemania_build_tetrahymena /bin/bash}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Gene Ontology annotation}\label{gene-ontology-annotation}
+
+\section{Static Networks}\label{static-networks}
+
+\bibliography{book.bib,packages.bib}
+
+\end{document}
